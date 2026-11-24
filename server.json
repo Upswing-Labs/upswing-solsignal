@@ -1,0 +1,58 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "dev.upswing/solsignal",
+  "title": "Upswing SolSignal",
+  "description": "Solana SPL rug-risk, AMM dump stress-test & x402 USDC liquidity microstructure scanner.",
+  "version": "2.0.0",
+  "websiteUrl": "https://upswing-solsignal.upswing-labs.workers.dev",
+  "icons": [
+    {
+      "src": "https://upswing-solsignal.upswing-labs.workers.dev/icon.svg",
+      "mimeType": "image/svg+xml",
+      "sizes": ["any"],
+      "theme": "dark"
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://upswing-solsignal.upswing-labs.workers.dev/mcp",
+      "headers": [
+        {
+          "name": "PAYMENT-SIGNATURE",
+          "description": "Optional x402 v2 base64 Solana payment payload for deep_solana_signal (0.005 USDC via PayAI).",
+          "isRequired": false,
+          "isSecret": false
+        },
+        {
+          "name": "X-PAYMENT",
+          "description": "Optional x402 v1 base64 Solana payment payload for deep_solana_signal (0.005 USDC via PayAI).",
+          "isRequired": false,
+          "isSecret": false
+        },
+        {
+          "name": "X-PAYMENT-TX",
+          "description": "Optional confirmed Solana mainnet USDC transaction signature (>= 5000 micro-USDC) fallback header.",
+          "isRequired": false,
+          "isSecret": false
+        }
+      ]
+    }
+  ],
+  "_meta": {
+    "io.modelcontextprotocol.registry/publisher-provided": {
+      "x402": {
+        "facilitator": "https://facilitator.payai.network",
+        "networks": ["solana", "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp"],
+        "feePayer": "CjNFTjvBhbJJd2B5ePPMHRLx1ELZpa8dwQgGL727eKww",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "priceMicroUsdc": "5000",
+        "payTo": "9kE6pAKgW1M2J27JAX7bMkY2uGanjNGjxzrNpomA6bte",
+        "bazaarDiscoverable": true
+      },
+      "tools": ["scan_solana_token", "deep_solana_signal"],
+      "scoringDocs": "https://upswing-solsignal.upswing-labs.workers.dev/docs/scoring",
+      "farcasterManifest": "https://upswing-solsignal.upswing-labs.workers.dev/.well-known/farcaster.json"
+    }
+  }
+}

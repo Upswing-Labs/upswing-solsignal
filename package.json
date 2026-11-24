@@ -1,0 +1,19 @@
+{
+  "name": "upswing-solsignal",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Upswing SolSignal — $0-infra Cloudflare Workers Solana Token Safety, AMM Dump Stress-Test & Microstructure Signal API (x402 USDC + MCP + Farcaster Mini-App)",
+  "scripts": {
+    "test": "node --test test/worker.test.mjs",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "types": "wrangler types",
+    "typecheck": "npx --yes -p typescript tsc --noEmit"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20261101.0",
+    "typescript": "^5.8.0",
+    "wrangler": "^4.0.0"
+  }
+}
